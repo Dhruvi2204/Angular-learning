@@ -1,0 +1,44 @@
+@if (tasks[0]!=null) {
+
+<table
+  class="table table-bordered table-striped container text-center"
+  style="width: 70vw"
+>
+  <thead>
+    <tr style="font-size: large">
+      <th scope="col">Sr. No</th>
+      <th scope="col">Task</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete Task</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (task of tasks; track $index){
+    <tr>
+      <th scope="row">{{ $index + 1 }}</th>
+      @if ( setEditable.myIndex ==$index && setEditable.isEditable==true ) {
+      <td class="d-flex gap-1"><input type="text" class="form-control" [(ngModel)]="todo" />
+        <button class="btn btn-success" (click)="onSave($index)">Save</button>
+        <button class="btn btn-warning"(click)="onCancel($index)">Cancel</button>
+      </td>
+      } @else {
+      <td>{{ task }}</td>
+      }
+
+      <td>
+        <button class="btn btn-info" (click)="onEdit($index)">Edit</button>
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="onDelete($index)">
+          Delete
+        </button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+}@else {
+<div class="card container" style="width: 80vw">
+  <div class="card-body text-center">No todos for today!</div>
+</div>
+}

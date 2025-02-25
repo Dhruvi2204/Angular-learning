@@ -1,0 +1,35 @@
+/* src/app/components/navbar/navbar.component.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #272727;
+  padding: 1rem;
+  color: #ecf0f1;
+}
+
+.navbar-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.navbar-user span {
+  margin-right: 1rem;
+  font-size: 1rem;
+}
+
+.navbar-user button {
+  padding: 0.5rem 1rem;
+  background-color: #e74c3c;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.my-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 22px;
+}

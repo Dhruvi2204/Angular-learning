@@ -1,0 +1,10 @@
+<h2>Movie List</h2>
+<ul>
+  @for (movie of movieList; track $index) {
+  <div>
+    <button (click)="gotoMovie(movie)" class="btn btn-info mt-2">
+      {{ movie.title }}
+    </button>
+  </div>
+  }
+</ul>

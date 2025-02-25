@@ -1,0 +1,66 @@
+<div
+  class="result-body d-flex justify-content-center align-items-start mt-5"
+  style="height: 45vh"
+>
+  <div class="card" style="width: 25rem">
+    <h5 class="text-center bg-warning p-2 text-white fs-3">
+      Quiz Result
+      <span>
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/9913/9913579.png"
+          width="40px"
+          alt="Result Icon"
+        />
+      </span>
+    </h5>
+    <div class="card-body">
+      <h5 class="card-title">
+        Your score:
+        <span class="fs-3 text">{{ score }} out of {{ outOf }}</span>
+      </h5>
+      <p>{{ score | showPerformance : outOf }}</p>
+
+      <div class="mt-3 d-flex justify-content-between">
+        <button (click)="retakeQuiz()" class="btn btn-primary">
+          Retake Quiz
+        </button>
+        <button (click)="loadCategories()" class="btn btn-primary">
+          All Categories
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="text-center mt-4">Quiz Summary</h2>
+
+<!-- Questions -->
+<div class="d-flex justify-content-center align-content-center my-3">
+  <div class="card" style="width: 50rem">
+    <div class="card-body">
+      <div *ngFor="let question of categoryList?.questions; let i = index">
+        <p class="fw-bold">Q{{ i + 1 }}: {{ question.question }}</p>
+        <ul class="list-group list-group-flush pt-2">
+          <li
+            class="list-group-item"
+            *ngFor="let opt of question.options; let j = index"
+            [ngClass]="{
+              'bg-success text-white': opt === question.correctAnswer,
+              'bg-danger text-white':
+                opt === selectedOptArr[i] && opt !== question.correctAnswer
+            }"
+          >
+            <input
+              type="radio"
+              [name]="'answer' + i"
+              [value]="opt"
+              [checked]="opt === selectedOptArr[i]"
+              disabled
+            />
+            <label>{{ opt }}</label>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

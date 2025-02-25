@@ -1,0 +1,281 @@
+{
+  "categories": [
+    {
+      "categoryName": "HTML",
+      "categoryDes": "HTML is the standard markup language for Web pages. With HTML you can create your own Website.",
+      "questions": [
+        {
+          "question": "What does HTML stand for?",
+          "options": [
+            "Hyper Text Markup Language",
+            "Highlevel Text Markup Language",
+            "Hyperlink Markup Language",
+            "Hyperlink Text Manipulation Language"
+          ],
+          "correctAnswer": "Hyper Text Markup Language"
+        },
+        {
+          "question": "Which tag is used for the largest heading in HTML?",
+          "options": ["<h1>", "<h6>", "<heading>", "<head>"],
+          "correctAnswer": "<h1>"
+        },
+        {
+          "question": "What is the correct way to add a hyperlink in HTML?",
+          "options": [
+            "<a url='https://example.com'>Link</a>",
+            "<a href='https://example.com'>Link</a>",
+            "<link href='https://example.com'>Link</link>",
+            "<a>https://example.com</a>"
+          ],
+          "correctAnswer": "<a href='https://example.com'>Link</a>"
+        },
+        {
+          "question": "What does the <img> tag require to function correctly?",
+          "options": [
+            "alt attribute",
+            "src attribute",
+            "title attribute",
+            "both src and alt attributes"
+          ],
+          "correctAnswer": "both src and alt attributes"
+        },
+        {
+          "question": "Which HTML tag is used to define an internal style sheet?",
+          "options": ["<style>", "<script>", "<css>", "<head>"],
+          "correctAnswer": "<style>"
+        }
+      ]
+    },
+    {
+      "categoryName": "CSS",
+      "categoryDes": " CSS is the language we use to style an HTML document. CSS describes how HTML elements should be displayed.",
+      "questions": [
+        {
+          "question": "What does CSS stand for?",
+          "options": [
+            "Cascading Style Sheets",
+            "Computer Style Sheets",
+            "Creative Style Sheets",
+            "Colorful Style Sheets"
+          ],
+          "correctAnswer": "Cascading Style Sheets"
+        },
+        {
+          "question": "Which property is used to change the background color?",
+          "options": ["color", "background-color", "bgcolor", "background"],
+          "correctAnswer": "background-color"
+        },
+        {
+          "question": "What is the correct CSS syntax to make all the <p> elements bold?",
+          "options": [
+            "p {font-weight: bold;}",
+            "<p style='font-weight: bold;'>",
+            "p:font-weight = bold;",
+            "p {text-weight: bold;}"
+          ],
+          "correctAnswer": "p {font-weight: bold;}"
+        },
+        {
+          "question": "Which CSS property is used to change the text color of an element?",
+          "options": ["font-color", "text-color", "color", "text-style"],
+          "correctAnswer": "color"
+        },
+        {
+          "question": "Which CSS property controls the text size?",
+          "options": ["font-size", "text-size", "text-style", "font-style"],
+          "correctAnswer": "font-size"
+        }
+      ]
+    },
+    {
+      "categoryName": "JavaScript",
+      "categoryDes": "JavaScript is the Programming Language for the Web. JavaScript can update and change both HTML and CSS.",
+      "questions": [
+        {
+          "question": "What is the correct syntax to declare a variable in JavaScript?",
+          "options": [
+            "var variableName;",
+            "variableName = var;",
+            "int variableName;",
+            "variable variableName;"
+          ],
+          "correctAnswer": "var variableName;"
+        },
+        {
+          "question": "Which of the following is a JavaScript data type?",
+          "options": ["String", "Number", "Boolean", "All of the above"],
+          "correctAnswer": "All of the above"
+        },
+        {
+          "question": "Which method is used to write content into an HTML document using JavaScript?",
+          "options": [
+            "document.write()",
+            "console.log()",
+            "alert()",
+            "document.log()"
+          ],
+          "correctAnswer": "document.write()"
+        },
+        {
+          "question": "What will the following code return: typeof null?",
+          "options": ["object", "null", "undefined", "error"],
+          "correctAnswer": "object"
+        },
+        {
+          "question": "Which symbol is used for comments in JavaScript?",
+          "options": ["//", "/* */", "Both", "None"],
+          "correctAnswer": "Both"
+        }
+      ]
+    },
+    {
+      "categoryName": "Angular",
+      "categoryDes": "Angular is a platform and framework for building single-page client applications using HTML and TypeScript. ",
+      "questions": [
+        {
+          "question": "Which architectural pattern does Angular follow?",
+          "options": ["MVC", "MVVM", "MVP", "None of the above"],
+          "correctAnswer": "MVVM"
+        },
+        {
+          "question": "Which file contains the configuration for the Angular app?",
+          "options": [
+            "angular.json",
+            "package.json",
+            "app.module.ts",
+            "main.ts"
+          ],
+          "correctAnswer": "angular.json"
+        },
+        {
+          "question": "What is the purpose of decorators in Angular?",
+          "options": [
+            "To define metadata",
+            "To handle events",
+            "To create directives",
+            "To style components"
+          ],
+          "correctAnswer": "To define metadata"
+        },
+        {
+          "question": "Which directive is used to display dynamic content in Angular?",
+          "options": ["ngModel", "ngIf", "ngBind", "ngFor"],
+          "correctAnswer": "ngBind"
+        },
+        {
+          "question": "What is a Component in Angular?",
+          "options": [
+            "A reusable UI element",
+            "A directive",
+            "A service",
+            "None of the above"
+          ],
+          "correctAnswer": "A reusable UI element"
+        }
+      ]
+    },
+    {
+      "categoryName": "MySQL",
+      "categoryDes": "MySQL is a popular, time-tested, but also modern and fully-featured relational database management software.",
+      "questions": [
+        {
+          "question": "What does SQL stand for?",
+          "options": [
+            "Structured Query Language",
+            "Sequential Query Language",
+            "Standard Query Language",
+            "Simple Query Language"
+          ],
+          "correctAnswer": "Structured Query Language"
+        },
+        {
+          "question": "Which command is used to retrieve data from a database in MySQL?",
+          "options": ["SELECT", "GET", "FETCH", "SHOW"],
+          "correctAnswer": "SELECT"
+        },
+        {
+          "question": "What is the default port for MySQL?",
+          "options": ["1433", "1521", "3306", "8080"],
+          "correctAnswer": "3306"
+        },
+        {
+          "question": "Which clause is used to filter the records returned by a query?",
+          "options": ["WHERE", "HAVING", "FILTER", "ORDER BY"],
+          "correctAnswer": "WHERE"
+        },
+        {
+          "question": "Which command is used to create a new table in MySQL?",
+          "options": ["INSERT", "CREATE", "ALTER", "UPDATE"],
+          "correctAnswer": "CREATE"
+        }
+      ]
+    },
+    {
+      "categoryName": "Java",
+      "categoryDes": "Java is a popular programming language. Java is used to develop mobile apps, web apps, desktop apps, games and much more.",
+      "questions": [
+        {
+          "question": "What is the size of an int in Java?",
+          "options": ["16-bit", "32-bit", "64-bit", "Depends on the system"],
+          "correctAnswer": "32-bit"
+        },
+        {
+          "question": "Which method is used to start a thread in Java?",
+          "options": ["run()", "start()", "execute()", "launch()"],
+          "correctAnswer": "start()"
+        },
+        {
+          "question": "What is the default value of a boolean variable in Java?",
+          "options": ["true", "false", "0", "null"],
+          "correctAnswer": "false"
+        },
+        {
+          "question": "Which keyword is used to inherit a class in Java?",
+          "options": ["extends", "implements", "inherits", "super"],
+          "correctAnswer": "extends"
+        },
+        {
+          "question": "What is the purpose of the main() method in Java?",
+          "options": [
+            "To define a starting point for the program",
+            "To initialize variables",
+            "To compile the code",
+            "To inherit a class"
+          ],
+          "correctAnswer": "To define a starting point for the program"
+        }
+      ]
+    },
+    {
+      "categoryName": "C",
+      "categoryDes": "C is a general-purpose programming language that is used to create computer software, applications, and operating systems. ",
+      "questions": [
+        {
+          "question": "What is the default return type of the main() function in C?",
+          "options": ["int", "void", "char", "float"],
+          "correctAnswer": "int"
+        },
+        {
+          "question": "Which of the following is used to print formatted output in C?",
+          "options": ["scanf()", "printf()", "puts()", "gets()"],
+          "correctAnswer": "printf()"
+        },
+        {
+          "question": "What is the size of a float in C?",
+          "options": ["2 bytes", "4 bytes", "8 bytes", "16 bytes"],
+          "correctAnswer": "4 bytes"
+        },
+        {
+          "question": "Which header file is required for using the printf() function?",
+          "options": ["<stdio.h>", "<stdlib.h>", "<string.h>", "<math.h>"],
+          "correctAnswer": "<stdio.h>"
+        },
+        {
+          "question": "What is the output of 5 + 2 * 3 in C?",
+          "options": ["21", "11", "15", "8"],
+          "correctAnswer": "11"
+        }
+      ]
+    }
+  ]
+}

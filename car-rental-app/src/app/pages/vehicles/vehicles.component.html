@@ -1,0 +1,44 @@
+<h2 class="text-center">Available Cars</h2>
+<!-- <ul *ngIf="carList.length > 0">
+  <li *ngFor="let car of carList">{{ car.color }} - {{ car.model }}</li>
+</ul> -->
+<div
+  class="container mt-5 d-flex justify-content-center"
+  style="max-width: 100%"
+>
+  <div
+    class="d-flex justify-content-center align-items-center flex-row flex-wrap gap-2"
+    style="max-width: 100%"
+  >
+    <div
+      *ngFor="let car of carList"
+      class="card d-flex flex-column shadow-lg border-0 rounded-4 overflow-hidden"
+      style="width: 25rem; align-items: center"
+    >
+      <img
+        src="
+         https://images.pexels.com/photos/29098242/pexels-photo-29098242/free-photo-of-classic-mercedes-benz-350-sl-front-view.jpeg?auto=compress&cs=tinysrgb&w=600
+        "
+        class="card-img-left rounded-4 mt-1"
+        alt="Car Image"
+        style="width: 22rem; height: 260px; object-fit: cover"
+      />
+      <div class="card-body text-center p-4">
+        <h4 class="card-title fw-bold text-primary">{{ car.brand }}</h4>
+        <p class="card-text text-muted mb-1">
+          Model: <span class="fw-semibold">{{ car.model }}</span> | Year:
+          <span class="fw-semibold">{{ car.year }}</span>
+        </p>
+        <p class="card-text text-success fw-bold fs-5">{{ car.model }}</p>
+        <div class="d-flex justify-content-center gap-5 mt-3">
+          <button class="btn btn-outline-primary px-4 py-2 rounded-pill">
+            Edit
+          </button>
+          <button class="btn btn-outline-danger px-4 py-2 rounded-pill">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

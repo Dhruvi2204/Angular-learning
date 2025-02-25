@@ -1,0 +1,84 @@
+/* Auth Container */
+.auth-container {
+  width: 350px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #121212;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+  color: white;
+  text-align: center;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  background: transparent;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab-button.active {
+  color: white;
+  border-bottom: 2px solid #f39c12;
+}
+
+/* Form */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form h2 {
+  margin-bottom: 15px;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background: #1e1e1e;
+  color: white;
+}
+
+.auth-form .btn {
+  background: #f39c12;
+  border: none;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.auth-form .btn:hover {
+  background: #d98d10;
+}
+
+/* Toggle Text */
+.toggle-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #bbb;
+}
+
+.toggle-text span {
+  color: #f39c12;
+  cursor: pointer;
+  font-weight: bold;
+}

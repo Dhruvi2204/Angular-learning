@@ -1,0 +1,151 @@
+{
+  "categories": [
+    {
+      "categoryName": "Cars",
+      "categoryDes": "Cars have evolved over time, featuring advanced technology, performance, and design.",
+      "imgURL": "https://images.pexels.com/photos/337909/pexels-photo-337909.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "questions": [
+        {
+          "question": "Which company produces the Mustang?",
+          "options": ["Ford", "Chevrolet", "Dodge", "Tesla"],
+          "correctAnswer": "Ford"
+        },
+        {
+          "question": "What is the top speed of a Bugatti Chiron?",
+          "options": ["350 km/h", "420 km/h", "490 km/h", "520 km/h"],
+          "correctAnswer": "490 km/h"
+        },
+        {
+          "question": "Which country is known for producing Ferrari cars?",
+          "options": ["Germany", "Italy", "France", "USA"],
+          "correctAnswer": "Italy"
+        },
+        {
+          "question": "Which of the following is an electric car manufacturer?",
+          "options": ["Toyota", "Tesla", "Honda", "Ford"],
+          "correctAnswer": "Tesla"
+        },
+        {
+          "question": "What does 'SUV' stand for?",
+          "options": ["Sport Utility Vehicle", "Super Utility Van", "Small Urban Vehicle", "Speedy Urban Vehicle"],
+          "correctAnswer": "Sport Utility Vehicle"
+        }
+      ]
+    },
+    {
+      "categoryName": "Movies & Web Series",
+      "categoryDes": "Movies and web series entertain people with stories, characters, and cinematography.",
+       "imgURL": "https://images.pexels.com/photos/713149/pexels-photo-713149.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "questions": [
+        {
+          "question": "Which movie features the character Tony Stark?",
+          "options": ["Batman", "Superman", "Iron Man", "Spiderman"],
+          "correctAnswer": "Iron Man"
+        },
+        {
+          "question": "Which TV series is based on George R.R. Martin's novels?",
+          "options": ["The Witcher", "Game of Thrones", "Breaking Bad", "Stranger Things"],
+          "correctAnswer": "Game of Thrones"
+        },
+        {
+          "question": "Who directed the movie 'Inception'?",
+          "options": ["Christopher Nolan", "Steven Spielberg", "James Cameron", "Quentin Tarantino"],
+          "correctAnswer": "Christopher Nolan"
+        },
+        {
+          "question": "Which streaming platform released 'Money Heist'?",
+          "options": ["Netflix", "Amazon Prime", "Disney+", "HBO Max"],
+          "correctAnswer": "Netflix"
+        },
+        {
+          "question": "Which animated movie features the character 'Woody'?",
+          "options": ["Frozen", "Toy Story", "Shrek", "Finding Nemo"],
+          "correctAnswer": "Toy Story"
+        }
+      ]
+    },
+    {
+      "categoryName": "Geography",
+      "categoryDes": "Geography covers the study of Earth's landscapes, environments, and places.",
+       "imgURL": "https://images.pexels.com/photos/335393/pexels-photo-335393.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "questions": [
+        {
+          "question": "Which is the largest ocean on Earth?",
+          "options": ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"],
+          "correctAnswer": "Pacific Ocean"
+        },
+        {
+          "question": "Which country has the most population?",
+          "options": ["USA", "India", "China", "Russia"],
+          "correctAnswer": "China"
+        },
+        {
+          "question": "What is the capital of Australia?",
+          "options": ["Sydney", "Melbourne", "Canberra", "Brisbane"],
+          "correctAnswer": "Canberra"
+        },
+        {
+          "question": "Which continent is the Sahara Desert located in?",
+          "options": ["Asia", "Africa", "Australia", "South America"],
+          "correctAnswer": "Africa"
+        },
+        {
+          "question": "Which river is the longest in the world?",
+          "options": ["Amazon River", "Yangtze River", "Nile River", "Mississippi River"],
+          "correctAnswer": "Nile River"
+        }
+      ]
+    },
+    {
+      "categoryName": "History",
+      "categoryDes": "History is the study of past events, civilizations, and significant figures.",
+       "imgURL": "https://images.pexels.com/photos/1172018/pexels-photo-1172018.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "questions": [
+        {
+          "question": "Who was the first President of the United States?",
+          "options": ["George Washington", "Abraham Lincoln", "Thomas Jefferson", "John Adams"],
+          "correctAnswer": "George Washington"
+        },
+        {
+          "question": "In which year did World War II end?",
+          "options": ["1943", "1944", "1945", "1946"],
+          "correctAnswer": "1945"
+        }
+      ]
+    },
+    {
+      "categoryName": "Physics",
+      "categoryDes": "Physics explores the laws of nature, motion, energy, and matter.",
+       "imgURL": "https://images.pexels.com/photos/60582/newton-s-cradle-balls-sphere-action-60582.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "questions": [
+        {
+          "question": "What is the speed of light in a vacuum?",
+          "options": ["300,000 km/s", "150,000 km/s", "200,000 km/s", "100,000 km/s"],
+          "correctAnswer": "300,000 km/s"
+        },
+        {
+          "question": "Who developed the theory of relativity?",
+          "options": ["Isaac Newton", "Galileo Galilei", "Albert Einstein", "Nikola Tesla"],
+          "correctAnswer": "Albert Einstein"
+        }
+      ]
+    },
+    {
+      "categoryName": "Chemistry",
+      "categoryDes": "Chemistry is the study of matter, its properties, and how substances interact.",
+       "imgURL": "https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "questions": [
+        {
+          "question": "What is the chemical symbol for water?",
+          "options": ["O2", "CO2", "H2O", "NaCl"],
+          "correctAnswer": "H2O"
+        },
+        {
+          "question": "What is the pH value of a neutral substance?",
+          "options": ["0", "7", "14", "5"],
+          "correctAnswer": "7"
+        }
+      ]
+    }
+  ]
+}

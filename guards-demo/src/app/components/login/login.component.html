@@ -1,0 +1,55 @@
+<body>
+  <div class="login-card">
+    <div class="brand">
+      <div class="brand-logo"></div>
+      <h1>Welcome back</h1>
+      <p>Enter your credentials to access your account</p>
+    </div>
+
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="email">Username</label>
+        <input
+          type="text"
+          id="email"
+          placeholder="Enter your Username"
+          name="username"
+          [(ngModel)]="username"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+          name="userpassword"
+          [(ngModel)]="userpassword"
+        />
+        <div class="error" id="passwordError"></div>
+      </div>
+
+      <div class="remember-forgot">
+        <div class="remember-me">
+          <input type="checkbox" id="remember" />
+          <label for="remember">Remember me</label>
+        </div>
+        <p>Forgot password?</p>
+      </div>
+
+      <button
+        (click)="onSignIn()"
+        type="submit"
+        class="login-btn"
+        id="loginButton"
+      >
+        Sign in
+      </button>
+    </form>
+
+    <div class="signup-link">
+      <p>Don't have an account? Sign up</p>
+    </div>
+  </div>
+</body>

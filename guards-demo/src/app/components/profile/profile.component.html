@@ -1,0 +1,19 @@
+<form>
+  <label for="username">username: </label>
+  <input
+    type="text"
+    name="username"
+    [(ngModel)]="username"
+    placeholder="Edit Username"
+  />
+  <br />
+  <label for="username">Password: </label>
+  <input
+    type="password"
+    name="password"
+    [(ngModel)]="password"
+    placeholder="Edit Password"
+  />
+  <br />
+  <button (click)="onSave()">Save changes</button>
+</form>

@@ -1,0 +1,22 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="text-center">
+    <h1 class="display-4 fw-bold text-primary mb-4">
+      Welcome to the Application
+    </h1>
+    <p class="lead text-muted mb-4">Please choose your role to continue.</p>
+    <div class="d-flex justify-content-center gap-3">
+      <button
+        (click)="onUserDashboard()"
+        class="btn btn-outline-success btn-lg px-4"
+      >
+        User Dashboard
+      </button>
+      <button
+        (click)="onAdminDashboard()"
+        class="btn btn-outline-danger btn-lg px-4"
+      >
+        Admin Dashboard
+      </button>
+    </div>
+  </div>
+</div>

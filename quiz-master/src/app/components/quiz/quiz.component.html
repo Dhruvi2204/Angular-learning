@@ -1,0 +1,113 @@
+<div *ngIf="!quizDone">
+  <!-- Nav bar -->
+  <nav class="navbar bg-secondary">
+    <div class="container-fluid text-white">
+      <h6>{{ selectedCategory?.categoryName }} Quiz</h6>
+    </div>
+  </nav>
+
+  <!-- Question List -->
+  <div class="w-100 mt-4 showSelected d-flex justify-content-center gap-2">
+    <div *ngFor="let que of selectedCategory?.questions; let i = index">
+      <div style="width: 40px; height: 40px" class="rounded text-center">
+        <button
+          class="cursor-pointer text-white btn btn-secondary"
+          (click)="onSelect(i)"
+        >
+          {{ i + 1 }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Quiz Section -->
+  <div class="d-flex justify-content-center align-content-center my-3">
+    <div class="card" style="width: 50rem">
+      <div class="card-header">
+        <!-- Progress Bar -->
+        <div class="d-flex justify-content-end align-items-center">
+          Attempted:
+          <div class="progress my-3 mx-3" role="progressbar" style="width: 30%">
+            <div
+              class="progress-bar"
+              [ngStyle]="{ width: progressWidth + '%' }"
+            >
+              {{ progressWidth }}%
+            </div>
+          </div>
+        </div>
+        <div>
+          Q- {{ myIndex + 1 }}:
+          {{ selectedCategory?.questions[myIndex]?.question }}
+        </div>
+
+        <ul class="list-group list-group-flush pt-3">
+          <li
+            class="list-group-item"
+            *ngFor="let opt of selectedCategory?.questions[myIndex]?.options"
+            [ngClass]="bgColorToAdd[opt] || ''"
+          >
+            <input
+              type="radio"
+              name="answer"
+              [value]="opt"
+              [(ngModel)]="selectedOpt[myIndex]"
+            />
+            {{ opt }}
+          </li>
+        </ul>
+
+        <div class="d-flex justify-content-between pt-2">
+          <button
+            class="btn btn-secondary"
+            (click)="goPrev()"
+            [disabled]="checkDisable('Prev')"
+          >
+            <i class="fa fa-angle-left" aria-hidden="true">
+              <span class="mx-3">Prev</span>
+            </i>
+          </button>
+          <button
+            class="btn btn-primary"
+            (click)="goNext()"
+            [disabled]="checkDisable('Next')"
+          >
+            <span class="mx-3">Next</span>
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <!-- Submit Answer -->
+        <button
+          *ngIf="selectedCategory?.questions.length > myIndex"
+          class="btn btn-success mt-2"
+          (click)="onSubmit()"
+          [disabled]="checkDisable('submit')"
+          style="width: 100%"
+        >
+          Submit
+        </button>
+
+        <!-- Submit Test -->
+        <button
+          *ngIf="selectedCategory?.questions.length - 1 === myIndex"
+          class="btn btn-success mt-2"
+          (click)="onSubmitTest()"
+          [disabled]="checkDisable('submit')"
+          style="width: 100%"
+        >
+          Submit Test
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="quizDone">
+  <app-results
+    [categoryList]="selectedCategory"
+    [myIndexValue]="myIndex"
+    [score]="correctAns"
+    [selectedOptArr]="selectedAnsArray"
+  ></app-results>
+</div>

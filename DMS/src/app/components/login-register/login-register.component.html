@@ -1,0 +1,74 @@
+<!-- src/app/components/login-register/login-register.component.html -->
+<div class="auth-container">
+  <div class="tabs">
+    <button
+      class="tab-button"
+      [class.active]="isLoginTab"
+      (click)="toggleTab(true)"
+    >
+      Login
+    </button>
+    <button
+      class="tab-button"
+      [class.active]="!isLoginTab"
+      (click)="toggleTab(false)"
+    >
+      Sign Up
+    </button>
+  </div>
+
+  <div class="form-container">
+    <!-- Login Form -->
+    <form *ngIf="isLoginTab" class="auth-form" (ngSubmit)="login()">
+      <h2>Login</h2>
+      <input
+        type="text"
+        placeholder="User Name"
+        [(ngModel)]="loginUsername"
+        name="loginUsername"
+        required
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="loginPassword"
+        name="loginPassword"
+        required
+      />
+      <button type="submit" class="btn">Login</button>
+      <p class="toggle-text">
+        Don't have an account? <span (click)="toggleTab(false)">Sign Up</span>
+      </p>
+    </form>
+
+    <!-- Signup Form -->
+    <form *ngIf="!isLoginTab" class="auth-form" (ngSubmit)="register()">
+      <h2>Sign Up</h2>
+      <input
+        type="text"
+        placeholder="User Name"
+        [(ngModel)]="registerUsername"
+        name="registerUsername"
+        required
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="registerPassword"
+        name="registerPassword"
+        required
+      />
+      <input
+        type="password"
+        placeholder="Confirm Password"
+        [(ngModel)]="registerConfirmPassword"
+        name="registerConfirmPassword"
+        required
+      />
+      <button type="submit" class="btn">Sign Up</button>
+      <p class="toggle-text">
+        Already have an account? <span (click)="toggleTab(true)">Login</span>
+      </p>
+    </form>
+  </div>
+</div>

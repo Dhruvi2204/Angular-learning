@@ -1,0 +1,93 @@
+<app-navbar></app-navbar>
+<div class="container mt-4">
+  <!-- Score Card -->
+  <div
+    class="card shadow-lg border-0 rounded-lg animate__animated animate__fadeIn"
+  >
+    <div class="card-header header bg-dark text-white">
+      <h4 class="text-center m-0">Quiz Result</h4>
+    </div>
+
+    <div class="card-body text-center">
+      <h2 class="fw-bold text-success display-4">
+        {{ resultData.score }} / {{ resultData.total }}
+      </h2>
+
+      <span
+        class="d-block mt-2 fs-5 fw-semibold"
+        [ngClass]="{
+          'text-danger':
+            resultData.total !== 0 &&
+            resultData.score > 0 &&
+            (resultData.score / resultData.total) * 100 < 33,
+          'text-warning':
+            resultData.total !== 0 &&
+            (resultData.score / resultData.total) * 100 >= 33 &&
+            (resultData.score / resultData.total) * 100 <= 70,
+          'text-success':
+            resultData.total !== 0 &&
+            (resultData.score / resultData.total) * 100 > 70
+        }"
+      >
+        {{ resultData.score | performance : resultData.total }}
+      </span>
+      <div
+        class="navigation-buttons d-flex gap-3 py-2 my-3 justify-content-center"
+      >
+        <button (click)="onReplay()" class="btn btn-dark text-white">
+          🔁 Replay quiz
+        </button>
+        <button (click)="onCategories()" class="btn btn-dark text-white">
+          📃 Explore categories
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <h3 class="fw-bold text-dark text-center">Quiz Summary</h3>
+
+    <!-- Loop through each question in the summary -->
+    <div
+      *ngFor="let item of resultData.summary; let i = index"
+      class="card my-3 shadow-sm border-0 rounded-lg animate__animated animate__fadeInUp"
+    >
+      <div
+        class="card-header bg-light d-flex justify-content-between align-items-center"
+      >
+        <h6 class="mb-0 text-dark">Q{{ i + 1 }}: {{ item.question }}</h6>
+        <span
+          class="badge px-3 py-2"
+          [ngClass]="{
+            'bg-success':
+              item.status === 'Attempted' &&
+              item.selectedAnswer === item.correctAnswer,
+            'bg-danger':
+              item.status === 'Attempted' &&
+              item.selectedAnswer !== item.correctAnswer,
+            'bg-warning text-dark': item.status === 'Not Attempted'
+          }"
+        >
+          {{ item.status === "Not Attempted" ? " Not Attempted" : item.status }}
+        </span>
+      </div>
+
+      <div class="card-body">
+        <ul class="list-group">
+          <!-- Loop through options for each question -->
+          <li
+            *ngFor="let opt of item.options"
+            class="list-group-item py-2 border rounded shadow-sm"
+            [ngClass]="{
+              'bg-success text-white': opt === item.correctAnswer,
+              'bg-danger text-white':
+                opt === item.selectedAnswer && opt !== item.correctAnswer
+            }"
+          >
+            {{ opt }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

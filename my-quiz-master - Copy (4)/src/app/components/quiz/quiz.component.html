@@ -1,0 +1,128 @@
+<nav class="navbar text-white py-3 shadow-sm">
+  <div class="container-fluid">
+    <h6 class="m-0 fs-5 fw-bold">Quiz</h6>
+  </div>
+</nav>
+
+<!-- Question List -->
+<div class="w-100 mt-4 d-flex justify-content-center gap-3 flex-wrap">
+  <div *ngFor="let que of selectedCategoryQuestions; let i = index">
+    <button
+      class="my-btn border rounded-circle d-flex align-items-center justify-content-center"
+      style="
+        width: 45px;
+        height: 45px;
+        font-weight: bold;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      "
+      (click)="onJump(i)"
+    >
+      {{ i + 1 }}
+    </button>
+  </div>
+</div>
+
+<!-- Quiz Card -->
+<div class="d-flex justify-content-center align-content-center my-4">
+  <div
+    class="card shadow-lg"
+    style="width: 50rem; border-radius: 10px; overflow: hidden"
+  >
+    <div class="card-header bg-light py-3">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="fw-bold">Attempted:</span>
+        <div
+          class="progress mx-3 flex-grow-1"
+          style="height: 10px; background-color: #e9ecef"
+        >
+          <div
+            class="progress-bar bg-success"
+            [ngStyle]="{ width: progressPercentage + '%' }"
+            role="progressbar"
+          ></div>
+        </div>
+        <span class="fw-bold">{{ progressPercentage }}%</span>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <!-- Question -->
+      <div class="mb-3">
+        <h6 class="fw-bold">Q-{{ currentQueIndex + 1 }}:</h6>
+        <p class="fs-5 text-dark">
+          {{ selectedCategoryQuestions[currentQueIndex]?.question }}
+        </p>
+      </div>
+
+      <!-- Options -->
+      <ul class="list-group list-group-flush">
+        <li
+          class="list-group-item py-2"
+          *ngFor="
+            let opt of selectedCategoryQuestions[currentQueIndex]?.options;
+            let i = index
+          "
+          [ngClass]="{
+            'bg-danger text-white':
+              submittedAnswers[currentQueIndex] === opt &&
+              opt !== selectedCategoryQuestions[currentQueIndex].correctAnswer,
+            'bg-success text-white':
+              submittedAnswers[currentQueIndex] === opt &&
+              opt === selectedCategoryQuestions[currentQueIndex].correctAnswer,
+          }"
+          style="cursor: pointer; border: 1px solid #ddd; border-radius: 5px"
+        >
+          <input
+            type="radio"
+            name="answer-{{ currentQueIndex }}"
+            [value]="opt"
+            [(ngModel)]="selectedOptions[currentQueIndex]"
+            (change)="enableSubmit(currentQueIndex)"
+            [disabled]="submittedAnswers[currentQueIndex] !== undefined"
+            class="me-2"
+          />
+          {{ opt }}
+        </li>
+      </ul>
+
+      <!-- Navigation Buttons -->
+      <div class="d-flex justify-content-between pt-4">
+        <button
+          [disabled]="currentQueIndex == 0"
+          (click)="goPrev()"
+          class="my-btn px-4"
+        >
+          Prev
+        </button>
+        <button
+          [disabled]="currentQueIndex === selectedCategoryQuestions.length - 1"
+          (click)="goNext()"
+          class="my-btn px-4"
+        >
+          Next
+        </button>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        (click)="onSubmit(currentQueIndex)"
+        [disabled]="
+          !submitEnabled[currentQueIndex] ||
+          submittedAnswers[currentQueIndex] !== undefined
+        "
+        class="btn btn-success mt-4 w-100 fw-bold"
+      >
+        Submit
+      </button>
+
+      <button
+        *ngIf="currentQueIndex === selectedCategoryQuestions.length - 1"
+        (click)="onSubmitTest()"
+        class="btn btn-success mt-4 w-100 fw-bold"
+      >
+        Submit Test
+      </button>
+    </div>
+  </div>
+</div>
+<!-- <app-result></app-result> -->

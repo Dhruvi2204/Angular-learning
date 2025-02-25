@@ -1,0 +1,15 @@
+<!-- src/app/user-dashboard/user-dashboard.component.html -->
+<button (click)="onLogout()" class="btn btn-warning">Logout</button>
+<div class="container mt-5">
+  <h1 class="text-center text-primary">User Dashboard</h1>
+  <p class="lead text-center">Welcome, User! Here’s your personal dashboard.</p>
+  <div class="text-center">
+    <a
+      routerLink="settings"
+      routerLinkActive="router-link-active"
+      class="btn btn-info"
+      >Go to Settings</a
+    >
+  </div>
+</div>
+<router-outlet></router-outlet>

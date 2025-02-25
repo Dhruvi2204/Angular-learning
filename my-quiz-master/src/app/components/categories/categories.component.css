@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand");
+
+* {
+  font-family: Quicksand, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #272727;
+  color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  /* text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8); */
+  animation: glowText 1.5s infinite alternate;
+  color: white;
+}
+
+@keyframes glowText {
+  from {
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+  }
+  to {
+    text-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
+  }
+}
+
+.img-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  width: 100%;
+}
+
+.quiz-box {
+  width: 330px;
+  height: 460px;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  position: relative;
+}
+
+/* Floating hover effect */
+.quiz-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 40px rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.quiz-img {
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+}
+
+.quiz-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(75%) contrast(110%);
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Image zoom effect */
+.quiz-box:hover img {
+  filter: brightness(100%) contrast(120%);
+  transform: scale(1.08);
+}
+
+.quiz-details {
+  padding: 20px;
+  color: #fff;
+}
+
+.quiz-details h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+/* Glowing effect on hover */
+.quiz-box:hover .quiz-details h2 {
+  color: #ffeb3b;
+  text-shadow: 0px 0px 12px rgba(255, 235, 59, 0.8);
+}
+
+.quiz-details p {
+  font-size: 16px;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+/* Button styles */
+.quiz-details a {
+  font-size: 18px;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 30px;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  transition: all 0.3s ease-in-out;
+  background: rgba(255, 255, 255, 0.2);
+  display: inline-block;
+}
+
+/* Button hover effect */
+.quiz-details a:hover {
+  background: linear-gradient(135deg, #ffeb3b, #ff9800);
+  color: #222;
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(255, 235, 59, 0.5);
+}
+
+.linkToQuiz {
+  cursor: pointer;
+}

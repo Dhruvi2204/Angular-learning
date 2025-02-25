@@ -1,0 +1,22 @@
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.navbar {
+  background-color: #272727;
+  color: white;
+}
+.list-group-item:hover {
+  background-color: rgb(245, 239, 239);
+}
+
+.progress-bar {
+  transition: width 0.4s ease-in-out;
+}
+.my-btn {
+  background-color: #272727;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 4px;
+}

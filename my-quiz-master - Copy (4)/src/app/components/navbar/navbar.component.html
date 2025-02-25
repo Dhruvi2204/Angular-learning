@@ -1,0 +1,10 @@
+<!-- src/app/components/navbar/navbar.component.html -->
+<nav class="navbar">
+  <div class="navbar-header">
+    <button (click)="onIconClick()" class="my-btn">Quiz App</button>
+  </div>
+  <div class="navbar-user" *ngIf="username">
+    <span>Welcome, {{ username }}!</span>
+    <button (click)="logout()">Logout</button>
+  </div>
+</nav>

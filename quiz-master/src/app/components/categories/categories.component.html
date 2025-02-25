@@ -1,0 +1,79 @@
+<!-- Add the Animate.css library for smooth animations -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+
+<div class="container py-4">
+  <h2 class="text-center mb-4 text-dark animate__animated animate__fadeInDown">
+    Quiz Categories
+  </h2>
+  <div class="row g-3">
+    @for (item of questionsObj; track $index) {
+    <div
+      class="col-12 animate__animated animate__fadeInLeft"
+      style="animation-delay: 0.2 s"
+    >
+      <div
+        class="category-card d-flex align-items-center p-3 shadow-sm rounded"
+        style="background-color: #f9f9f9; border: 1px solid #e0e0e0"
+      >
+        <!-- Numbering -->
+        <div
+          class="me-3 d-flex align-items-center justify-content-center"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: #007bff;
+            border-radius: 50%;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          "
+        >
+          {{ $index + 1 }}
+        </div>
+        <!-- Category Details -->
+        <div class="flex-grow-1">
+          <h5 class="mb-1 text-dark d-flex align-items-center">
+            {{ item.categoryName }}
+            <button
+              (click)="onTakeQuiz($index)"
+              class="btn btn-outline-primary btn-sm ms-auto"
+              style="
+                border-radius: 20px;
+                padding: 5px 15px;
+                font-size: 0.875rem;
+              "
+            >
+              Take Quiz <i class="bi bi-arrow-right"></i>
+            </button>
+          </h5>
+          <p class="text-muted mb-0">
+            {{ item.categoryDes }}
+          </p>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+
+<!--  Bootstrap Icons CDN for the arrow  -->
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+  rel="stylesheet"
+/>
+
+<!-- Custom Styles -->
+<style>
+  .category-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+</style>
