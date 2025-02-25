@@ -1,0 +1,72 @@
+<!-- <p>data-binding works!</p> -->
+
+<button class="btn btn-success my-3" (click)="navigateToAdmin()">Go to admin page</button>
+
+<h2>Data Binding</h2>
+<h3>First way of one way data binding: Interpolation</h3>
+<p>fname: {{ fname }}</p>
+<!-- Accessing any variable  -->
+<h3>Second way: Property(attribute) Binding</h3>
+<input type="text" [value]="fname" />
+<!-- wrap the attribute with square bracket to render the variable -->
+<br />
+<input type="text" [placeholder]="myPlaceholder" />
+<br />
+<br />
+<p>Adding bootstrap using data binding</p>
+<div [class]="divClassName" >
+  <p>Hello</p>
+</div>
+<!-- because class is also a property -->
+<br />
+<h2>Third way: Event binding</h2>
+<button class="btn btn-success" (click)="showWelcome()">
+  Show Welcome text
+</button>
+
+<br />
+<br />
+<div class="col-3">
+  <select (change)="onValueChange()">
+    <option value="Pune">Pune</option>
+    <option value="Ahmedabad">Ahmedabad</option>
+    <option value="Surat">Surat</option>
+    <option value="Mumbai">Mumbai</option>
+  </select>
+</div>
+
+<h1>Two way data binding using ng-modal</h1>
+<p>
+  For two way data binding use ngModel directive, but first you need to import
+  FormsModule in import statement of that component's ts file
+</p>
+
+<div class="col-3">
+  <input type="text" [(ngModel)]="fname" />
+  <p>
+    On creating a variable and binding that variable to a input, when value is
+    changed in input field, it is reflected everywhere where that variable is
+    there
+  </p>
+</div>
+
+<h3>Other example for two way data binding</h3>
+<div class="col-3">
+  <select [(ngModel)]="selectedCity">
+    <option value="Pune">Pune</option>
+    <option value="Ahmedabad">Ahmedabad</option>
+    <option value="Surat">Surat</option>
+    <option value="Mumbai">Mumbai</option>
+  </select>
+  <span>-{{ selectedCity }}</span>
+</div>
+
+<!-- Another simple example -->
+<br />
+<br />
+
+<div class="col-3">
+  <p>My name is: {{ myName }}</p>
+  <input type="text" [(ngModel)]="myName" />
+  <p>My name is: {{ myName }}</p>
+</div>

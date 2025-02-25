@@ -1,0 +1,129 @@
+<div class="container">
+  <h2>User Form</h2>
+  <!-- #form is having a reference for ngForm -->
+  <form #form="ngForm" class="row g-3">
+    <div class="col-md-4">
+      <label for="fname" class="form-label"
+        >First name <span class="text-danger">*</span></label
+      >
+      <input
+        type="text"
+        class="form-control"
+        name="fname"
+        [(ngModel)]="userObj.fname"
+        required
+        #fname="ngModel"
+      />
+
+      <!--? #fname="ngModel": Creates a local reference (fname) to the ngModel directive, enabling access to its properties (like errors, touched, dirty, etc.). -->
+
+      <div class="text-danger">
+        @if (fname.errors?.['required'] && fname.touched) {
+        <span>This is required.</span>
+        }
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="lname" class="form-label">Last name <span class="text-danger">*</span></label>
+      <input
+        type="text"
+        class="form-control"
+        name="lname"
+        required
+        minlength="3"
+        [(ngModel)]="userObj.lname"
+        #lname="ngModel"
+      />
+      <div class="text-danger">
+        @if(lname.errors?.['required'] && lname.touched){
+        <span>This is required.</span>
+        }
+        @if (lname.errors?.['minlength'] && lname.touched) {
+          <span>Minimnum 3 letters required.</span>
+        }
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="userName" class="form-label">Username</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text">&#64;</span>
+        <input
+          type="text"
+          class="form-control"
+          name="userName"
+          aria-describedby="inputGroupPrepend"
+          required
+          [(ngModel)]="userObj.userName"
+          #userName="ngModel"
+        />
+
+      </div>
+      <div class="text-danger">
+          @if(userName.errors?.['required'] && userName.touched && userName.dirty){
+            <span>This is required.</span>
+          }
+        </div>
+    </div>
+    <div class="col-md-6">
+      <label for="city" class="form-label">City</label>
+      <input
+        type="text"
+        id="city"
+        class="form-control"
+        name="city"
+        required
+        [(ngModel)]="userObj.city"
+      />
+      <div class="invalid-feedback">Please provide a valid city.</div>
+    </div>
+    <div class="col-md-3">
+      <label for="state" class="form-label">State</label>
+      <select
+        id="state"
+        class="form-select"
+        name="state"
+        [(ngModel)]="userObj.state"
+        required
+      >
+        <option selected disabled value="">Choose...</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Punjab">Punjab</option>
+      </select>
+      <div class="invalid-feedback">Please select a valid state.</div>
+    </div>
+    <div class="col-md-3">
+      <label for="zipCode" class="form-label">Zip</label>
+      <input
+        type="text"
+        id="zipCode"
+        class="form-control"
+        name="zipCode"
+        [(ngModel)]="userObj.zipCode"
+        required
+      />
+      <div class="invalid-feedback">Please provide a valid zip code.</div>
+    </div>
+    <div class="col-12">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          name="isTermsAgree"
+          [(ngModel)]="userObj.isTermsAgree"
+          required
+        />
+        <label class="form-check-label">
+          Agree to terms and conditions
+        </label>
+
+      </div>
+    </div>
+    <div class="col-12">
+      <!-- the button is only enabled if all validation conditions has been met -->
+      <button class="btn btn-primary" type="button" [disabled]="form.invalid">
+        Submit form
+      </button>
+    </div>
+  </form>
+</div>

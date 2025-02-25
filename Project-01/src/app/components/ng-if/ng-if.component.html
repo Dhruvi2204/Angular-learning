@@ -1,0 +1,23 @@
+<div class="row" style="width: 100%;">
+  <div>
+    <div class="bg-primary-subtle" style="width: 10%;" *ngIf="isVisible">Div 1</div>
+  </div>
+<!-- If value for ngIf is true, only then that element is rendered. -->
+  <div>
+    <div class="bg-primary-subtle my-3" style="width: 10%; " *ngIf="number1 === number2">Div 2 </div>
+  </div>
+</div>
+
+<div class="col-3 text-center my-3">
+  <button class="btn btn-success" (click)="showDiv()">Show</button>
+  <button class="btn btn-danger mx-5" (click)="hideDiv()">Hide</button>
+</div>
+
+<div>
+  <input type="text" [(ngModel)]="number1" />
+  <input type="text" [(ngModel)]="number2" />
+</div>
+
+<div>
+  <h5>Number-1: {{ number1 }},Number-2: {{ number2 }}</h5>
+</div>

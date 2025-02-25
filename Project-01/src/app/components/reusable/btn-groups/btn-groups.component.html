@@ -1,0 +1,5 @@
+<div class="btn-group" role="group" aria-label="Basic example">
+  @for (btn of btnList; track $index) {
+  <button type="button" class="btn" [ngClass]="btn==currentBtn?'btn-success':'btn-primary'" (click)="btnClickedFun(btn)">{{btn}}</button>
+  }
+</div>

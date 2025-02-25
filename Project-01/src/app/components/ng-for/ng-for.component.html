@@ -1,0 +1,165 @@
+<!-- PIPES- Built in pipes -->
+<!-- pipes are basically used to format the data that will be rendered onto the screen -->
+<div class="row">
+  <div class="col-2">
+    <div>coursename => {{ courseName }}</div>
+    <div>uppercase => {{ courseName | uppercase }}</div>
+  </div>
+  <!-- ! lowercase  -->
+  <div class="col-2">
+    <div>coursename => {{ courseName }}</div>
+    <div>Lowercase => {{ courseName | lowercase }}</div>
+  </div>
+
+  <!-- ! title case pipe converts first letter into capital -->
+  <div class="col-2">
+    <div>coursename => {{ courseName }}</div>
+    <div>Title case => {{ courseName | titlecase }}</div>
+  </div>
+
+  <!-- ! without json, we cannot print an object/ array of object (only object can be printed directly.) directly on browser -->
+  <div class="col-2">
+    <div>studentObj => {{ studentObj }}</div>
+    <div>json pipe => {{ studentObj | json }}</div>
+  </div>
+
+  <div class="col-2">
+    <div>current Date => {{ currentDate }}</div>
+    <div>current Date => {{ currentDate | date }}</div>
+  </div>
+
+  <!-- ! decimal pipe -->
+  <div class="col-2">
+    <div>pi =>{{ pi }}</div>
+    <div>pi =>{{ pi | number : "2.3-4" }}</div>
+  </div>
+</div>
+
+<hr />
+<div class="row">
+  <div class="col-2">
+    <!-- ! Pre-defined format options -->
+    <div>current Date => {{ currentDate | date : "shortDate" }}</div>
+    <div>current Time => {{ currentDate | date : "mediumTime" }}</div>
+  </div>
+
+  <!-- ! slice pipe -->
+  <div class="col-2">
+    <div>str => {{ str }}</div>
+    <div>str => {{ str | slice : 0 : 4 }}</div>
+    <div>list => {{ list | slice : 0 : 2 }}</div>
+  </div>
+
+  <!--! percent pipe -->
+  <div class="col-2">
+    <div>number-1: {{ number1 }}</div>
+    <div>number-1: {{ number1 | percent }}</div>
+    <div>number-1: {{ number1 | percent : "3.2-3" }}</div>
+    <!-- ! percent : "3.2-3" means before decimal 3 digits and after decimal 2 to 3 digits -->
+  </div>
+
+  <!-- ! key value pipe -->
+  <div class="col-2">
+    <div>object: {{ object | json }}</div>
+    <div *ngFor="let item of object | keyvalue">
+      {{ item.key }} - {{ item.value }}
+    </div>
+  </div>
+
+  <!-- ! Generic selector that displays the string that matches the current value.If none of the keys of the mapping match the value, then the content of the other key is returned when present, otherwise an empty string is returned.-->
+  <!-- !I18nSelectPipe -->
+  <div class="col-2">
+    <div>gender: {{ gender }}</div>
+    <div>gender: {{ gender | i18nSelect : inviteMap }}</div>
+  </div>
+
+  <!--! I18nPluralPipe  -->
+  <div class="col-2">
+    <div>{{ messages.length | i18nPlural : messageMapping }}</div>
+    <input type="text" [(ngModel)]="msg" />
+    <button (click)="addMessage(msg)" class="btn btn-success">
+      Add message
+    </button>
+    <button (click)="removeMsg()" class="btn btn-danger">Remove message</button>
+    <div *ngFor="let message of messages; let i = index">
+      {{ i + 1 }} => {{ message }}
+    </div>
+  </div>
+</div>
+
+<!-- ! -->
+<!-- ! async pipe -->
+<div class="row">
+  <div class="col-2">
+    <!-- ! type observable used without subscribe. -->
+    <div>Time: {{ time | async }}</div>
+  </div>
+</div>
+
+<br />
+<hr />
+
+<!-- <p>ng-for works!</p> -->
+<h2>ngFor directive</h2>
+<div class="col-2">
+  <ul *ngFor="let city of cityList">
+    <li>{{ city }}</li>
+  </ul>
+</div>
+
+<div class="col-5">
+  <button class="btn btn-success mx-1" *ngFor="let city of cityList">
+    {{ city }}
+  </button>
+</div>
+
+<br />
+
+<h5>Array of object</h5>
+<div class="row">
+  <div class="col-6">
+    <select>
+      <option *ngFor="let emp of empList" value="{{ emp.empId }}">
+        {{ emp.name }}
+      </option>
+    </select>
+  </div>
+</div>
+
+<div class="row my-3 text-center">
+  <div class="col-6">
+    <app-btn-groups
+      [btnList]="list"
+      (onBtnClicked)="onBtnChange($event)"
+    ></app-btn-groups>
+  </div>
+</div>
+
+<p>--{{ currentBtn }}</p>
+
+<div class="col-5">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Sr No</th>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>City</th>
+        <th>Attendance</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let emp of empList; let srNo = index">
+        <td>{{ srNo + 1 }}</td>
+        <td>{{ emp.name | na }}</td>
+        <td>{{ emp.contact | na }}</td>
+        <td>{{ emp.city | na }}</td>
+        <td>
+          <!-- & progressValue now acts as a property of app-progress-bar component and we can simply do property binding-->
+          <app-progress-bar [progressValue]="emp.attendance"></app-progress-bar>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

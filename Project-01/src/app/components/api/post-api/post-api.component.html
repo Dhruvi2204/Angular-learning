@@ -1,0 +1,173 @@
+<!-- ! this will be executed on port 4209: ng s --port 4209 -->
+<h2 class="text-center my-3">API Call Integration using Template Form</h2>
+<div class="container">
+  <!-- <button (click)="getAllCars()" class="btn btn-info">Load cars</button> -->
+  <div class="col-12 text-center">
+    <!-- ! input is like a property and output is like an event -->
+    <app-tab-group
+      (tabClicked)="onTabClick($event)"
+      [tabList]="['Car List', 'Add new Car']"
+    ></app-tab-group>
+  </div>
+
+  <div class="row my-3">
+    @if (this.currentTab=='Car List') {<!-- Card 1: Car List -->
+    <div class="col-md-12">
+      <div class="card" style="max-width: 100%">
+        <div class="card-header text-bg-warning mb-3">
+          <h5>Car List</h5>
+        </div>
+        <div class="card-body">
+          <div class="card-text">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Sr. No</th>
+                  <th>Brand</th>
+                  <th>Model</th>
+                  <th>Reg No</th>
+                  <th>Daily rate</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                @for (car of carList; track $index) {
+                <tr>
+                  <td>{{ $index + 1 }}</td>
+                  <td>{{ car.brand }}</td>
+                  <td>{{ car.model }}</td>
+                  <td>{{ car.regNo }}</td>
+                  <td>{{ car.dailyRate }}</td>
+                  <td>
+                    <button (click)="onEdit(car)" class="btn btn-warning">
+                      Edit
+                    </button>
+                    <button
+                      (click)="onDelete(car.carId)"
+                      class="btn btn-danger mx-1"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    } @else {
+    <!-- Card 2: Create New Car form-->
+    <div class="col-md-12">
+      <div class="card" style="max-width: 100%">
+        <div class="card-header text-bg-warning mb-3">
+          <h5>Create New Car</h5>
+        </div>
+        <div class="card-body">
+          <div class="card-text">
+            <form class="row g-2">
+              <div class="col-md-6">
+                <label for="validationCustom01" class="form-label"
+                  >Reg No</label
+                >
+                <input
+                  type="text"
+                  [(ngModel)]="carObj.regNo"
+                  name="regNo"
+                  placeholder="Enter registration no."
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="validationCustom02" class="form-label">Brand</label>
+                <input
+                  type="text"
+                  [(ngModel)]="carObj.brand"
+                  name="brand"
+                  placeholder="Enter brand name"
+                />
+              </div>
+
+              <div class="col-md-6">
+                <label for="validationCustom01" class="form-label">Model</label>
+                <input
+                  type="text"
+                  [(ngModel)]="carObj.model"
+                  name="model"
+                  placeholder="Enter model name"
+                />
+              </div>
+
+              <div class="col-md-6">
+                <label for="validationCustom01" class="form-label">Year</label>
+                <input
+                  type="text"
+                  [(ngModel)]="carObj.year"
+                  name="year"
+                  placeholder="Enter year"
+                />
+              </div>
+
+              <div class="col-md-6">
+                <label for="validationCustom01" class="form-label">Color</label>
+                <input
+                  type="text"
+                  [(ngModel)]="carObj.color"
+                  name="color"
+                  placeholder="Enter color"
+                />
+              </div>
+
+              <div class="col-md-6">
+                <label for="validationCustom01" class="form-label"
+                  >Daily Rate</label
+                >
+                <input
+                  type="text"
+                  [(ngModel)]="carObj.dailyRate"
+                  name="dailyRate"
+                  placeholder="Enter daily rate"
+                />
+              </div>
+
+              <div class="col-md-6">
+                <label for="validationCustom01" class="form-label"
+                  >Car Image URL</label
+                >
+                <input
+                  type="text"
+                  [(ngModel)]="carObj.carImage"
+                  name="carImage"
+                  placeholder="Enter Car image URL"
+                />
+              </div>
+
+              <div class="col-12 text-center">
+                @if(carObj.carId==0 || carObj.brand==null){
+                <button
+                  class="btn btn-success"
+                  (click)="onSave()"
+                  type="submit"
+                >
+                  Save Car
+                </button>
+
+                <button class="btn btn-secondary mx-3" (click)="onReset()">
+                  Reset form
+                </button>
+                }@else {
+                <button (click)="onUpdate()" class="btn btn-primary">
+                  Update Car</button
+                >}
+                <p>{{ carObj.carId }}</p>
+                <!-- ! If update mode is on i.e if updating, the carId i.e primary key will have value other than 0. -->
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

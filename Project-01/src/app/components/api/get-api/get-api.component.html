@@ -1,0 +1,47 @@
+<!-- * The first thing we need to do is to integrate http client in providers array in app.config.ts : provideHttpClient() -->
+
+<button (click)="getUsers()" class="btn btn-success">Load users</button>
+
+<!-- Displaying the user data -->
+
+<div>
+  <div style="width: 80vw">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Sr. No</th>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Website</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (user of userList; track $index) {
+        <tr>
+          <td>{{ $index + 1 }}</td>
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.website }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<button class="btn btn-primary" (click)="getCompanies()">Load company</button>
+
+<div class="pt-3">
+  <select>
+    @for (company of companyList; track $index) {
+    <option value="{{ company.id }}">{{ company.name }}</option>
+    }
+  </select>
+</div>

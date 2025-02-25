@@ -1,0 +1,85 @@
+
+<div class="row">
+  @if (isVisible===true) {
+  <div class="col-3 bg-success p-3">Div-1</div>
+  }
+
+  <div class="col-3">
+    @if (isChecked){
+    <div class="bg-primary p-3">Checkbox is checked</div>
+    } @else {
+    <div class="bg-danger p-3">Checkbox is unchecked</div>
+    }
+  </div>
+
+  <div class="col-3">
+    @if (dayName==='mon') {
+    <div class="bg-info p-3">Monday</div>
+    } @else if (dayName==='tue') {
+    <div class="bg-info p-3">Tuesday</div>
+    } @else if (dayName==='wed') {
+    <div class="bg-info p-3">Wednesday</div>
+    } @else if (dayName==='thu') {
+    <div class="bg-info p-3">Thursday</div>
+    } @else if (dayName==='fri') {
+    <div class="bg-info p-3">Friday</div>
+    } @else if (dayName==='sat') {
+    <div class="bg-info p-3">Saturday</div>
+    } @else if(dayName==='sun'){
+    <div class="bg-info p-3">Sunday</div>
+    } @else {
+    <div class="bg-warning p-3">Invalid day</div>
+    }
+  </div>
+
+  <div class="col-3 bg-info text-center">
+    <select class="text-center">
+      @for (city of cityList; track $index) {
+      <option>{{ city }}</option>
+      }
+    </select>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-3 pt-3">
+    <button class="btn btn-success" (click)="hideShowDiv(true)">Show</button>
+    <button class="btn btn-danger" (click)="hideShowDiv(false)">Hide</button>
+  </div>
+
+  <div class="col-3 pt-3">
+    <input type="checkbox" [(ngModel)]="isChecked" /> - Checkbox
+  </div>
+
+  <div class="col-3 pt-3">
+    <input
+      type="text"
+      placeholder="First three day letters"
+      [(ngModel)]="dayName"
+    />
+  </div>
+</div>
+<br>
+<br>
+<h5>For loop: </h5>
+<div class="row">
+  <div class="col-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Sr. no</th>
+          <th>City Name</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (city of cityList; track $index) {
+        <tr>
+          <td>{{$index + 1}}</td>
+          <td>{{ city }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
